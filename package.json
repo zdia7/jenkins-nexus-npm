@@ -1,0 +1,24 @@
+{
+  "name": "hello-nodejs",
+  "version": "1.0.0",
+  "description": "My dummy Node.js application to try out new tools",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mlenkeit/hello-nodejs.git"
+  },
+  "keywords": [],
+  "author": "Maximilian Lenkeit",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mlenkeit/hello-nodejs/issues"
+  },
+  "homepage": "https://github.com/mlenkeit/hello-nodejs#readme",
+  "dependencies": {
+    "express": "4.17.1"
+  }
+}

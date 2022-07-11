@@ -1,0 +1,16 @@
+version: '3'
+services:
+  main:
+    image: node:latest
+    command: bash -c "npm install && npm start"
+    working_dir: /usr/src/app
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - ./index.js:/usr/src/app/index.js
+      - ./package-lock.json:/usr/src/app/package-lock.json
+      - ./package.json:/usr/src/app/package.json
+      - node_modules:/usr/src/app/node_modules
+volumes:
+  node_modules:
