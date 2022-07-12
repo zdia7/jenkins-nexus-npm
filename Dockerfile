@@ -1,12 +1,17 @@
-FROM jenkins 
-USER root
-RUN mkdir -p /tmp/download && \
-    curl -L https://get.docker.com/builds/linux/x86_64/docker-1.13.1.tgz | tar -xz -C /tmp/download && \ 
-    rm -rf /tmp/download/docker/dockerd && \
-    mv /tmp/download/docker/docker* /usr/local/bin/ && \
-    rm -rf /tmp/download && \
-    groupadd -g 999 doctor && \
-    usermod -aG docker jenkins
+FROM gliderlabs/alpine:edge
+LABEL maintainer="prenom.nom@univ-rouen.fr"
+RUN echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
+RUN addgroup -g 1000 -S www-data \
+ && adduser -u 1000 -D -S -G www-data www-data
+RUN apk upgrade --update-cache --available
+RUN apk add --update && apk add --no-cache -f bash nginx ca-certificates supervisCOPY ./conf/supervisord.conf /etc/supervisord.conf
+COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY src/ /var/www/html/
+RUN mkdir -p /run/nginx && mkdir /tmp/nginx
+RUN chown -R www-data:www-data /var/lib/nginx && chown -R www-data:wwwRUN sed -i s/'user = nobody'/'user = www-data'/g /etc/php7/php-fpm.d/www.conf
+RUN sed -i s/'group = nobody'/'group = www-data'/g /etc/php7/php-fpm.d/www.conf
+EXPOSE 80
+CMD ["/usr/bin/supervisord", "-n" , "-c", "/etc/supervisord.conf"]
 # 
 # FROM python:3.7-alpine
 # WORKDIR /code
