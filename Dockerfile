@@ -1,3 +1,12 @@
+FROM jenkins 
+USER root
+RUN mkdir -p /tmp/download && \
+    curl -L https://get.docker.com/builds/linux/x86_64/docker-1.13.1.tgz | tar -xz -C /tmp/download && \ 
+    rm -rf /tmp/download/docker/dockerd && \
+    mv /tmp/download/docker/docker* /usr/local/bin/ && \
+    rm -rf /tmp/download && \
+    groupadd -g 999 doctor && \
+    usermod -aG docker jenkins
 # 
 # FROM python:3.7-alpine
 # WORKDIR /code
@@ -10,21 +19,21 @@
 # COPY . .
 # CMD ["flask", "run"]
 
+
 #FROM node:14-alpine AS builder
 
-FROM node:14-alpine
+# FROM node:14-alpine
 
-WORKDIR /usr/src/app
+# COPY package*.json ./
 
-COPY package*.json ./
+# RUN npm install
 
-RUN npm install
+# COPY . .
 
-COPY . .
+# EXPOSE 3000
 
-EXPOSE 3000
+# ENTRYPOINT ["node","index.js"]
 
-ENTRYPOINT ["node","index.js"]
 
 #CMD ["node","index.js"]
 
