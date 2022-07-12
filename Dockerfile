@@ -1,5 +1,4 @@
 FROM gliderlabs/alpine:edge
-LABEL maintainer="prenom.nom@univ-rouen.fr"
 RUN echo http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories
 RUN addgroup -g 1000 -S www-data \
  && adduser -u 1000 -D -S -G www-data www-data
