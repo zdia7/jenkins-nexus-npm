@@ -2,10 +2,6 @@ pipeline{
 
 	agent any
 
-	environment {
-		//DOCKERHUB_CREDENTIALS=credentials('kubernetesdevops-4eb03886-1730-4193-a4a1-79b586335865')
-	}
-
 	stages {
 
 		stage('Build') {
