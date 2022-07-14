@@ -1,7 +1,7 @@
 pipeline {
   environment {
     imagename = "kubernetesdevops/docker-jenkins-demo"
-    registryCredential = 'credential-dockerhub'
+    registryCredential = 'credential docker'
     dockerImage = ''
   }
   agent any
