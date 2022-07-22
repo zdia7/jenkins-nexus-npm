@@ -24,7 +24,7 @@ spec:
           ports:
             - containerPort: 3000
               name: http
-          image: karimniang/hello-word-img
+          image: kubernetesdevops/docker-jenkins-demo
 ---
 apiVersion: v1
 kind: Service
@@ -32,7 +32,9 @@ metadata:
   name: demo-entrypoint
   namespace: demo
 spec:
-  type: NodePort
+  type: LoadBalancer
+  externalIPs:
+  - 192.168.1.7
   selector:
     app: nodejs-app
   ports:
