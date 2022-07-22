@@ -34,7 +34,7 @@ metadata:
 spec:
   type: LoadBalancer
   externalIPs:
-  - 192.168.1.7
+  - 192.168.49.2
   selector:
     app: nodejs-app
   ports:
