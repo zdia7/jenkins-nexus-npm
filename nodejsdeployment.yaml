@@ -13,14 +13,14 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nodejs-app
+      app: nodejs-app-jenkins
   template:
     metadata:
       labels:
-        app: nodejs-app
+        app: nodejs-app-jenkins
     spec:
       containers:
-        - name: hello-node
+        - name: hello-node-jenkins
           ports:
             - containerPort: 3000
               name: http
@@ -32,11 +32,9 @@ metadata:
   name: demo-entrypoint
   namespace: demo
 spec:
-  type: LoadBalancer
-  externalIPs:
-  - 192.168.49.2
+  type: NodePort
   selector:
-    app: nodejs-app
+    app: nodejs-app-jenkins
   ports:
     - port: 3000
       targetPort: 3000
