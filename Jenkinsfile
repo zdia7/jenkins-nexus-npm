@@ -31,14 +31,5 @@ pipeline {
 
       }
     }
-    stage('Deploy k8s') {
-      steps {
-        kubernetesDeploy(
-          kubeconfigId: 'k8skubernetes-cd',
-          configs: 'nodejsdeployment.yaml',
-          enableConfigSubstitution: true
-        )
-      }
-    }
   }
 }
