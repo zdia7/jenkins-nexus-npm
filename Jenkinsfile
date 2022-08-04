@@ -31,5 +31,11 @@ pipeline {
 
       }
     }
+    stage('Slack') {
+      steps{
+        slackSend message: 'test message'
+
+      }
+    }
   }
 }
