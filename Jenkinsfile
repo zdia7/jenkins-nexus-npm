@@ -9,9 +9,15 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm publish'
+        sh 'npm install'
         }
     }
+    stage('Publish') {
+        steps {
+          sh 'npm publish'
+        }
+    }
+
     stage('Building image') {
       steps{
         script {
