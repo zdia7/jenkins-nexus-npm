@@ -20,7 +20,7 @@
   "homepage": "https://github.com/mlenkeit/hello-nodejs#readme",
   "dependencies": {
     "express": "4.17.1"
-  }
+  },
   "publishConfig": {
     "registry": "https://nexus.utils.baamtuservices.com/repository/npm-private-test/"
   }
