@@ -1,11 +1,11 @@
 pipeline {
-  environment {
-    imagename = "kubernetesdevops/docker-jenkins-demo"
-    registryCredential = 'credential docker'
-    dockerImage = ''
+  // environment {
+  //   imagename = "kubernetesdevops/docker-jenkins-demo"
+  //   registryCredential = 'credential docker'
+  //   dockerImage = ''
   }
   agent any
-  tools {nodejs "node"}
+  // tools {nodejs "node"}
   stages {
     stage('Build') {
       steps {
@@ -50,4 +50,4 @@ pipeline {
     //   }
     // }
   }
-}
+// }
