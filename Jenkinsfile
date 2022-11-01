@@ -3,7 +3,7 @@ pipeline {
   //   imagename = "kubernetesdevops/docker-jenkins-demo"
   //   registryCredential = 'credential docker'
   //   dockerImage = ''
-  }
+  // }
   agent any
   tools {nodejs "nodejs"}
     stages {
