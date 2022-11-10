@@ -13,7 +13,7 @@ pipeline {
             }
         }
     }
-  // stages {
+  stages {
   //   stage('Build') {
   //     steps {
   //       sh 'npm install'
@@ -57,4 +57,4 @@ pipeline {
     //   }
     // }
   }
-// }
+}
