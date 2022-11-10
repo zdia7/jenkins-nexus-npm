@@ -1,3 +1,10 @@
 @Library('my-shared-library') _
-
-buildJavascriptApp 'https://github.com/zdia7/nodejs-jenkins-shared-library'
+ 
+node { 
+    env.NODEJS_HOME = "${tool 'nodejs'}" 
+    env.PATH = "${env.NODEJS_HOME}/bin:${env.PATH}" 
+    
+    buildJavascriptApp deploy : false, { 
+        notify type : "slack", message : "Construction réussie" 
+    } 
+}
