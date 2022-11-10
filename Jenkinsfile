@@ -12,19 +12,18 @@ pipeline {
                 sh 'npm install' 
             }
         }
+        stage('UploadArtifactNexus') {
+        steps {
+          sh 'npm publish'
+        }
+        }
     }
-  stages {
+  // stages {
   //   stage('Build') {
   //     steps {
   //       sh 'npm install'
   //       }
   //   }
-    stage('UploadArtifactNexus') {
-        steps {
-          sh 'npm publish'
-        }
-    }
-
     // stage('Building image') {
     //   steps{
     //     script {
@@ -57,4 +56,4 @@ pipeline {
     //   }
     // }
   }
-}
+// }
