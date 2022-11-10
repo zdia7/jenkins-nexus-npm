@@ -22,6 +22,6 @@
     "express": "4.17.1"
   },
   "publishConfig": {
-    "registry": "https://nexus.utils.baamtuservices.com/repository/npm-private-test/"
+    "registry": "https://nexus.utils.baamtuservices.com/repository/nom-private-testJenkins/"
   }
 }

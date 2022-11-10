@@ -19,11 +19,11 @@ pipeline {
   //       sh 'npm install'
   //       }
   //   }
-    // stage('Publish') {
-    //     steps {
-    //       sh 'npm publish'
-    //     }
-    // }
+    stage('UploadArtifactNexus') {
+        steps {
+          sh 'npm publish'
+        }
+    }
 
     // stage('Building image') {
     //   steps{
