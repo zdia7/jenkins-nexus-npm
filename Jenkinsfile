@@ -1,3 +1,3 @@
 @Library('my-shared-library') _
 
-buildJavascriptApp 'https://github.com/zdia7/jenkins-nexus-npm.git'
+buildJavascriptApp 'https://github.com/zdia7/nodejs-jenkins-shared-library'
